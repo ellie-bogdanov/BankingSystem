@@ -4,4 +4,4 @@
 #include <vector>
 #include "picosha2.h"
 
-std::string HashPassword(std::string password);
+void HashPassword(std::string& password);

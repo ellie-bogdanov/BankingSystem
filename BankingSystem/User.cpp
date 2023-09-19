@@ -11,7 +11,8 @@
 	{
 		id = uId;
 		username = uUsername;
-		password = HashPassword(uPassword);
+		password = uPassword;
+		HashPassword(password);
 		std::cout << password;
 		balance = uBalance;
 		std::cout << balance;

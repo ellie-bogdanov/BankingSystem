@@ -24,7 +24,7 @@ public:
 
 	}
 
-	void AddUser(std::string& username, std::string& password)
+	void AddUser(std::string& username, std::string password)
 	{
 
 		int id = userRepo.size() + 1;
