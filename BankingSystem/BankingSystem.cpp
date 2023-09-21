@@ -1,11 +1,13 @@
 
 #include <iostream>
-#include "UserRepository.cpp"
+#include "UserRepository.h"
+#include "AuthenticationService.h"
 #include <vector>
 
 int main()
 {
     UserRepository userRepo;
+    AuthenticationService authService(userRepo);
 
     std::vector<User>* mainBranchRepo = userRepo.GetMainBranchRepository();
     
@@ -24,10 +26,20 @@ int main()
 
     userRepo.PrintAllUsers(*mainBranchRepo);
 
-    std::string name = "asdasd";
-    User* user = userRepo.FindUserByUsername(name, *mainBranchRepo);
+    std::string loginUsername;
+    std::string loginPassword;
 
-    std::cout << user->GetUsername();
+    std::cout << "Enter Your username: " << '\n';
+    std::cin >> loginUsername;
+
+    std::cout << "Enter Your password: " << '\n';
+    std::cin >> loginPassword;
+
+    bool isLoggedIn = authService.login(loginUsername, loginPassword, *mainBranchRepo);
+
+    std::cout << isLoggedIn << '\n';
+
+    
 
 
     return 0;
