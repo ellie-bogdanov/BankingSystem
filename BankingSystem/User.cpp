@@ -35,3 +35,18 @@ const std::string& User::GetPassword()
 {
 	return password;
 }
+
+const Balance& User::GetBalance()
+{
+	return balance;
+}
+
+void User::withdrawlMoney(Balance amountToWithdraw)
+{
+	balance -= amountToWithdraw;
+}
+
+void User::depositMoney(Balance amountToDeposit)
+{
+	balance += amountToDeposit;
+}

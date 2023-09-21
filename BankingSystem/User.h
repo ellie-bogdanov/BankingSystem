@@ -24,4 +24,10 @@ public:
 	const std::string& GetUsername();
 
 	const std::string& GetPassword();
+
+	const Balance& GetBalance();
+
+	void withdrawlMoney(Balance amountToWithdraw);
+
+	void depositMoney(Balance amountToDeposit);
 };

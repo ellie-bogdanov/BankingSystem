@@ -34,10 +34,23 @@ int main()
 
     std::cout << "Enter Your password: " << '\n';
     std::cin >> loginPassword;
-
+    User* user;
     bool isLoggedIn = authService.login(loginUsername, loginPassword, *mainBranchRepo);
+    if (isLoggedIn)
+    {
+        user = userRepo.FindUserByUsername(loginUsername, *mainBranchRepo);
+    }
+    else
+    {
+        return 0;
+    }
 
-    std::cout << isLoggedIn << '\n';
+    Balance moneyToWithdraw = 230;
+    Balance moneyToDeposit = 1462;
+    (*user).withdrawlMoney(moneyToWithdraw);
+    (*user).depositMoney(moneyToDeposit);
+
+    std::cout << (*user).GetBalance();
 
     
 

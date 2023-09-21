@@ -142,9 +142,11 @@
     <ClCompile Include="UserRepository.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AuthenticationService.h" />
     <ClInclude Include="HashPassword.h" />
     <ClInclude Include="picosha2.h" />
     <ClInclude Include="User.h" />
+    <ClInclude Include="UserRepository.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
