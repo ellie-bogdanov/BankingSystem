@@ -5,7 +5,9 @@
 
 int main()
 {
-    UserRepository repo;
+    UserRepository userRepo;
+
+    std::vector<User>* mainBranchRepo = userRepo.GetMainBranchRepository();
     
     std::string username;
     std::string password;
@@ -17,17 +19,15 @@ int main()
     std::cout << "Enter Your password: " << '\n';
     std::cin >> password;
 
-    repo.AddUser(username, password);
+    Balance balance = 500;
+    userRepo.AddUser(username, password, balance, *mainBranchRepo);
 
-    /*std::vector<unsigned char> hash(picosha2::k_digest_size);
-    picosha2::hash256(password.begin(), password.end(), hash.begin(), hash.end());
+    userRepo.PrintAllUsers(*mainBranchRepo);
 
-    std::string hex_str = picosha2::bytes_to_hex_string(hash.begin(), hash.end());
+    std::string name = "asdasd";
+    User* user = userRepo.FindUserByUsername(name, *mainBranchRepo);
 
-
-
-    std::cout << hex_str;*/
-
+    std::cout << user->GetUsername();
 
 
     return 0;

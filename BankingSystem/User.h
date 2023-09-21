@@ -1,22 +1,25 @@
 #pragma once
 
 #include <string>
-
+using Balance = std::int_least16_t;
 class User
 {
+	
 
 private:
-	int id;
+	size_t id;
 	std::string username;
 	std::string password;
-	std::string balance;
+	Balance balance;
 
 public:
-	User(int id, std::string username, std::string password, int balance);
+	
+	User(size_t id, const std::string& username, std::string password, Balance balance);
+
 
 	~User();
 
-	int GetId();
+	size_t GetId();
 
-	std::string GetUsername();
+	const std::string& GetUsername();
 };

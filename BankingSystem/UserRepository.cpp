@@ -4,8 +4,9 @@
 
 class UserRepository
 {
+	
 private:
-	std::vector<User> userRepo;
+	std::vector<User> mainBrachRepo;
 
 
 public:
@@ -15,44 +16,39 @@ public:
 	}
 	~UserRepository(){}
 
-	void AddUser(std::string& username, std::string& password, int& balance)
+	std::vector<User> *GetMainBranchRepository()
+	{
+		return &mainBrachRepo;
+	}
+
+	void AddUser(std::string& username, std::string& password, Balance& balance, std::vector<User>& repository)
 	{
 		
-		int id = userRepo.size() + 1;
-		User user(id, username, password, balance);
-		userRepo.push_back(user);
+		size_t id = repository.size() + 1;
+		repository.emplace_back(id, username, password, balance);
 
 	}
 
-	void AddUser(std::string& username, std::string password)
+
+	void PrintAllUsers(std::vector<User> &repository)
 	{
-
-		int id = userRepo.size() + 1;
-		User user(id, username, password, 0);
-		userRepo.push_back(user);
-
-	}
-
-	void PrintAllUsers()
-	{
-		for(User user : userRepo)
+		for(User& user : repository)
 		{
 			std::cout << user.GetUsername() << ", ";
 		}
 		std::cout << '\n';
 	}
 
-	User* FindUserByUsername(std::string username)
+	User* FindUserByUsername(std::string& username, std::vector<User> &repository)
 	{
-		for (User user : userRepo)
+		for (User &user : repository)
 		{
 			if (user.GetUsername() == username)
 			{
-				User* p_user = &user;
-				return p_user;
+				return &user;
 			}
 		}
 
-		return NULL;
+		return nullptr;
 	}
 };

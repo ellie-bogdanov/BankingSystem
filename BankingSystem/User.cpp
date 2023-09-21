@@ -7,15 +7,12 @@
 
 
 
-	User::User(int uId, std::string uUsername, std::string uPassword, int uBalance)
+	User::User(size_t id, const std::string& username, std::string password, Balance balance) : id(id), username(username), balance(balance)
 	{
-		id = uId;
-		username = uUsername;
-		password = uPassword;
-		HashPassword(password);
-		std::cout << password;
-		balance = uBalance;
-		std::cout << balance;
+		password = HashPassword(password);
+		this->password = password;
+		std::cout << password << '\n';
+		std::cout << balance << '\n';
 	}
 
 	
@@ -24,12 +21,12 @@
 	{
 	}
 
-	int User::GetId()
+	size_t User::GetId()
 	{
 		return id;
 	}
 
-	std::string User::GetUsername()
+	const std::string& User::GetUsername()
 	{
 		return username;
 	}
