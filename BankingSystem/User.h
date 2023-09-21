@@ -22,4 +22,6 @@ public:
 	size_t GetId();
 
 	const std::string& GetUsername();
+
+	const std::string& GetPassword();
 };
