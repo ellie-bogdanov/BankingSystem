@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <vector>
+
 using Balance = std::int_least16_t;
 class User
 {
@@ -11,6 +13,7 @@ private:
 	std::string username;
 	std::string password;
 	Balance balance;
+	std::vector<Balance> transactionHistory;
 
 public:
 	
@@ -27,7 +30,9 @@ public:
 
 	const Balance& GetBalance();
 
-	void withdrawlMoney(Balance amountToWithdraw);
+	void WithdrawlMoney(Balance amountToWithdraw);
 
-	void depositMoney(Balance amountToDeposit);
+	void DepositMoney(Balance amountToDeposit);
+
+	const std::vector<Balance>& GetTransactionHistory();
 };

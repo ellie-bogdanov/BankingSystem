@@ -41,12 +41,19 @@ const Balance& User::GetBalance()
 	return balance;
 }
 
-void User::withdrawlMoney(Balance amountToWithdraw)
+void User::WithdrawlMoney(Balance amountToWithdraw)
 {
 	balance -= amountToWithdraw;
+	transactionHistory.push_back(-1 * amountToWithdraw);
 }
 
-void User::depositMoney(Balance amountToDeposit)
+void User::DepositMoney(Balance amountToDeposit)
 {
 	balance += amountToDeposit;
+	transactionHistory.push_back(amountToDeposit);
+}
+
+const std::vector<Balance>& User::GetTransactionHistory()
+{
+	return transactionHistory;
 }

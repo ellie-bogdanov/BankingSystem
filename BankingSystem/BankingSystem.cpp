@@ -47,10 +47,15 @@ int main()
 
     Balance moneyToWithdraw = 230;
     Balance moneyToDeposit = 1462;
-    (*user).withdrawlMoney(moneyToWithdraw);
-    (*user).depositMoney(moneyToDeposit);
+    (*user).WithdrawlMoney(moneyToWithdraw);
+    (*user).DepositMoney(moneyToDeposit);
 
-    std::cout << (*user).GetBalance();
+    std::cout << "Balance: " << (*user).GetBalance() << '\n';
+
+    for (Balance transaction : (*user).GetTransactionHistory())
+    {
+        std::cout << transaction << '\n';
+    }
 
     
 
