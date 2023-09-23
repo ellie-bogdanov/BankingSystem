@@ -13,21 +13,25 @@ UserRepository::UserRepository()
 }
 UserRepository::~UserRepository(){}
 
-std::vector<User>* UserRepository::GetMainBranchRepository()
+std::vector<User>& UserRepository::GetMainBranchRepository()
 {
-	return &mainBrachRepo;
+	return mainBrachRepo;
 }
 
-void UserRepository::AddUser(std::string& username, std::string& password, Balance& balance, std::vector<User>& repository)
+
+
+
+
+void UserRepository::AddUser(const std::string& username, std::string password, const Account& account, std::vector<User>& repository)
 {
 		
 	size_t id = repository.size() + 1;
-	repository.emplace_back(id, username, password, balance);
+	repository.emplace_back(id, username, password, account);
 
 }
 
 
-void UserRepository::PrintAllUsers(std::vector<User> &repository)
+void UserRepository::PrintAllUsers(std::vector<User>& repository)
 {
 	for(User& user : repository)
 	{
@@ -36,7 +40,7 @@ void UserRepository::PrintAllUsers(std::vector<User> &repository)
 	std::cout << '\n';
 }
 
-User* UserRepository::FindUserByUsername(std::string& username, std::vector<User> &repository)
+User* UserRepository::FindUserByUsername(std::string& username, std::vector<User>& repository)
 {
 	for (User &user : repository)
 	{

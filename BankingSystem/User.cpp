@@ -7,12 +7,12 @@
 
 
 
-User::User(size_t id, const std::string& username, std::string password, Balance balance) : id(id), username(username), balance(balance)
+User::User(size_t id, const std::string& username, std::string& password, const Account& account) : id(id), username(username), account(account)
 {
 	password = HashPassword(password);
 	this->password = password;
 	std::cout << password << '\n';
-	std::cout << balance << '\n';
+
 }
 
 	
@@ -36,24 +36,11 @@ const std::string& User::GetPassword()
 	return password;
 }
 
-const Balance& User::GetBalance()
+
+const Account& User::GetAccount()
 {
-	return balance;
+	return account;
 }
 
-void User::WithdrawlMoney(Balance amountToWithdraw)
-{
-	balance -= amountToWithdraw;
-	transactionHistory.push_back(-1 * amountToWithdraw);
-}
 
-void User::DepositMoney(Balance amountToDeposit)
-{
-	balance += amountToDeposit;
-	transactionHistory.push_back(amountToDeposit);
-}
 
-const std::vector<Balance>& User::GetTransactionHistory()
-{
-	return transactionHistory;
-}

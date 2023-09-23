@@ -2,8 +2,9 @@
 
 #include <string>
 #include <vector>
+#include "Account.h"
 
-using Balance = std::int_least16_t;
+
 class User
 {
 	
@@ -12,12 +13,14 @@ private:
 	size_t id;
 	std::string username;
 	std::string password;
-	Balance balance;
-	std::vector<Balance> transactionHistory;
+	Account account;
+
 
 public:
 	
-	User(size_t id, const std::string& username, std::string password, Balance balance);
+	User(size_t id, const std::string& username, std::string& password, const Account& account);
+
+
 
 
 	~User();
@@ -28,11 +31,9 @@ public:
 
 	const std::string& GetPassword();
 
-	const Balance& GetBalance();
+	const Account& GetAccount();
 
-	void WithdrawlMoney(Balance amountToWithdraw);
 
-	void DepositMoney(Balance amountToDeposit);
 
-	const std::vector<Balance>& GetTransactionHistory();
+
 };

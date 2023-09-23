@@ -2,7 +2,7 @@
 
 
 
-bool AuthenticationService::login(std::string& username, std::string& password, std::vector<User>& repository)
+/*bool AuthenticationService::login(std::string& username, std::string& password, std::vector<User>& repository)
 {
 	User* user = userRepository.FindUserByUsername(username, repository);
 	if (user == nullptr)
@@ -11,6 +11,7 @@ bool AuthenticationService::login(std::string& username, std::string& password, 
 	}
 	password = HashPassword(password);
 
+
 	if ((*user).GetPassword() == password)
 	{
 		return true;
@@ -18,7 +19,7 @@ bool AuthenticationService::login(std::string& username, std::string& password, 
 
 	return false;
 
-}
+}*/
 
 AuthenticationService::AuthenticationService(UserRepository userRepository) : userRepository(userRepository)
 {
@@ -27,7 +28,6 @@ AuthenticationService::AuthenticationService(UserRepository userRepository) : us
 
 AuthenticationService::~AuthenticationService()
 {
-
 }
 
 

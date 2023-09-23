@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "User.h"
+
 class UserRepository
 {
 private:
@@ -12,9 +13,9 @@ public:
 
 	~UserRepository();
 
-	std::vector<User>* GetMainBranchRepository();
+	std::vector<User>& GetMainBranchRepository();
 
-	void AddUser(std::string& username, std::string& password, Balance& balance, std::vector<User>& repository);
+	void AddUser(const std::string& username, std::string password, const Account& account, std::vector<User>& repository);
 
 	void PrintAllUsers(std::vector<User>& repository);
 

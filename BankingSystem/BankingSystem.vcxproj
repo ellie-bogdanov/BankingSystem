@@ -135,16 +135,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Account.cpp" />
     <ClCompile Include="AuthenticationService.cpp" />
     <ClCompile Include="BankingSystem.cpp" />
+    <ClCompile Include="Customer.cpp" />
     <ClCompile Include="HashPassword.cpp" />
+    <ClCompile Include="Transaction.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="UserRepository.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Account.h" />
     <ClInclude Include="AuthenticationService.h" />
+    <ClInclude Include="Customer.h" />
     <ClInclude Include="HashPassword.h" />
     <ClInclude Include="picosha2.h" />
+    <ClInclude Include="Transaction.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="UserRepository.h" />
   </ItemGroup>
