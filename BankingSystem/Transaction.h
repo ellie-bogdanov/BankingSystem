@@ -9,12 +9,15 @@ using Money = std::int_least16_t;
 class Transaction
 {
 	Money transactionAmount;
-	Account accountTo;
+	Account* accountTo;
+	Account* accountFrom;
 
 public:
-	Transaction(const Account& accountTo, const Money& transactionAmount);
+	Transaction(Account* accountTo, Account* accountFrom, const Money& transactionAmount);
 
 	~Transaction();
+
+	void ProccessTransaction(std::vector<Transaction*>* accountToTransactionList, std::vector<Transaction*>* accountFromTransactionList);
 
 	void PrintTransactionInfo();
 

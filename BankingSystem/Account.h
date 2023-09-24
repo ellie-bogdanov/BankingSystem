@@ -15,11 +15,13 @@ private:
 	size_t accountNumber;
 	std::vector<Transaction*> transactionList;
 
+	
+
 
 
 public:
 
-	Account(size_t accountNumber, const Customer& customer, const Money& balance);
+	Account(size_t accountNumber, const Customer& customer, Money balance);
 
 	~Account();
 
@@ -28,14 +30,17 @@ public:
 
 	const Customer& GetCustomer();
 
-	const Money& GetBalance();
+	Money GetBalance();
 
 	size_t GetAccountNumber();
 
-	void MoneyMovement(const Money& moneyToMove);
+	
+	void MoneyMovement(Money moneyToMove);
 
-	const std::vector<Transaction*>& GetTransactionList();
+	std::vector<Transaction*>* GetTransactionList();
 
-	void ProccessTransaction(const Account& accountTo, const Money& transactionAmount);
+	//void ProccessTransaction(const Account& accountTo, Money transactionAmount);
+
+	void AddTransactionToList(Transaction* transaction);
 
 };

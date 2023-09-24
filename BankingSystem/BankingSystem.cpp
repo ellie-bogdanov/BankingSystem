@@ -17,13 +17,13 @@ int main()
 
     
 
-    Account accountEllie(1, customerEllie, startingMoney);
+    Account* accountEllie = new Account(1, customerEllie, startingMoney);
 
     /*************************************************************/
 
     Customer customerCoral(2, "Coral", "Holon");
 
-    Account accountCoral(2, customerCoral, startingMoney);
+    Account* accountCoral = new Account(2, customerCoral, startingMoney);
 
     /*************************************************************/
 
@@ -33,15 +33,19 @@ int main()
     const std::string& usernameCoral = "Coral";
     std::string passwordCoral = "dsa";
 
-    userRepository.AddUser(usernameEllie, passwordEllie, accountEllie, mainBrachRepo);
-    userRepository.AddUser(usernameCoral, passwordCoral, accountCoral, mainBrachRepo);
+    userRepository.AddUser(usernameEllie, passwordEllie, (*accountEllie), mainBrachRepo);
+    userRepository.AddUser(usernameCoral, passwordCoral, (*accountCoral), mainBrachRepo);
 
-    accountEllie.ProccessTransaction(accountCoral, 500);
-    accountCoral.ProccessTransaction(accountEllie, -500);
+    Transaction transaction(accountEllie, accountCoral, 500);
 
-    accountEllie.PrintAccountInfo();
+    std::vector<Transaction*>* transactionListTo = (*accountEllie).GetTransactionList();
+    std::vector<Transaction*>* transactionListFrom = (*accountCoral).GetTransactionList();
+    
+    transaction.ProccessTransaction(transactionListTo, transactionListFrom);
 
-    accountCoral.PrintAccountInfo();
+    (*accountEllie).PrintAccountInfo();
+
+    (*accountCoral).PrintAccountInfo();
 
     userRepository.PrintAllUsers(mainBrachRepo);
 
