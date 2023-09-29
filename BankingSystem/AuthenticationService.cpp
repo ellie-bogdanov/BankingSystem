@@ -2,7 +2,7 @@
 
 
 
-/*bool AuthenticationService::login(std::string& username, std::string& password, std::vector<User>& repository)
+bool AuthenticationService::login(std::string& username, std::string& password, std::vector<User>& repository)
 {
 	User* user = userRepository.FindUserByUsername(username, repository);
 	if (user == nullptr)
@@ -19,7 +19,7 @@
 
 	return false;
 
-}*/
+}
 
 AuthenticationService::AuthenticationService(UserRepository userRepository) : userRepository(userRepository)
 {

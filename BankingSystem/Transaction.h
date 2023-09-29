@@ -13,7 +13,7 @@ class Transaction
 	Account* accountFrom;
 
 public:
-	Transaction(Account* accountTo, Account* accountFrom, const Money& transactionAmount);
+	Transaction(Account* accountTo, Account* accountFrom, Money transactionAmount);
 
 	~Transaction();
 

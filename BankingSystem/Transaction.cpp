@@ -1,11 +1,9 @@
 #include "Transaction.h"
 #include "Account.h"
 
-Transaction::Transaction(Account* accountTo, Account* accountFrom, const Money& transactionAmount) : accountTo(accountTo), accountFrom(accountFrom), transactionAmount(transactionAmount)
+Transaction::Transaction(Account* accountTo, Account* accountFrom,  Money transactionAmount) : accountTo(accountTo),
+						accountFrom(accountFrom), transactionAmount(transactionAmount)
 {
-
-	
-
 
 }
 
@@ -31,8 +29,8 @@ void Transaction::ProccessTransaction(std::vector<Transaction*>* accountToTransa
 
 void Transaction::PrintTransactionInfo()
 {
-	Customer customerTo = (*accountTo).GetCustomer();
-	customerTo.PrintCustomerInfo();
+	Customer* customerTo = accountTo->GetCustomer();
+	customerTo->PrintCustomerInfo();
 	std::cout << "Transaction Ammount: " << transactionAmount << '\n';
 }
 

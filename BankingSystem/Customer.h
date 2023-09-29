@@ -1,10 +1,13 @@
 #pragma once
 
 #include <string>
+#include <vector>
+#include<memory>
 
 class Customer
 {
 private:
+	std::vector<size_t> accountsInPossesion;
 	std::string name;
 	std::string address;
 	size_t id;
@@ -21,5 +24,9 @@ public:
 	const std::string& GetAddress();
 
 	const size_t GetId();
+
+	const std::vector<size_t> GetAccountsInPossesion();
+
+	void addAccountToAccountsInPossesion(size_t accountNumber);
 
 };

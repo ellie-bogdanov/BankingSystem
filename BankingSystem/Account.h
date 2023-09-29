@@ -10,7 +10,7 @@ using Money = std::int_least16_t;
 class Account
 {
 private:
-	Customer customer;
+	Customer* customer;
 	Money balance;
 	size_t accountNumber;
 	std::vector<Transaction*> transactionList;
@@ -21,14 +21,14 @@ private:
 
 public:
 
-	Account(size_t accountNumber, const Customer& customer, Money balance);
+	Account(size_t accountNumber, Customer* customer, Money balance);
 
 	~Account();
 
 	void PrintAccountInfo();
 
 
-	const Customer& GetCustomer();
+	Customer* GetCustomer();
 
 	Money GetBalance();
 

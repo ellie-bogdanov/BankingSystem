@@ -1,9 +1,11 @@
 #include "Account.h"
 #include "Transaction.h"
 
-Account::Account(size_t accountNumber, const Customer& customer, Money balance) : accountNumber(accountNumber), customer(customer), balance(balance)
+Account::Account(size_t accountNumber, Customer* customer, Money balance) : accountNumber(accountNumber), customer(customer), balance(balance)
 {
-
+	
+	customer->addAccountToAccountsInPossesion(accountNumber);
+	std::vector<size_t> accountNumbers = customer->GetAccountsInPossesion();
 }
 
 Account::~Account()
@@ -12,9 +14,10 @@ Account::~Account()
 	{
 		delete transaction;
 	}
+
 }
 
-const Customer& Account::GetCustomer()
+Customer* Account::GetCustomer()
 {
 	return customer;
 }
@@ -53,7 +56,7 @@ void Account::AddTransactionToList(Transaction* transaction)
 	
 void Account::PrintAccountInfo()
 {
-	customer.PrintCustomerInfo();
+	customer->PrintCustomerInfo();
 	std::cout << "Account- account number: " << accountNumber << ", balance: " << balance << '\n';
 	std::cout << "Transaction History: \n";
 
